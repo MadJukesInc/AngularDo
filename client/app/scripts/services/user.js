@@ -8,16 +8,6 @@
  * Factory in the clientApp.
  */
 angular.module('clientApp')
-  .factory('User', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
+  .factory('User', function ($resource) {
+    return $resource('http://localhost:8080/api/users/:id');
   });
