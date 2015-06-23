@@ -1,1 +1,37 @@
-<p>This is the tasks view.</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="task-form" ng-submit="addUser()">
+      <div class="input-group">
+        <input type="text" class="form-control" id="title" ng-model="newTask.title" required>
+        <!-- need to make the dropdown here-->
+                <span class="input-group-btn">
+                <button class="btn btn-success" type="submit">
+                    <span class="glyphicon glyphicon-plus"/>
+                  </button>
+                  <button class="btn btn-danger" type="reset" ng-click="resetTitle()">
+                    <span class="glyphicon glyphicon-remove"/>
+                  </button>
+            </span>
+      </div>
+    </form>
+  </div>
+  <table class="table table-hover table-condensed">
+    <thead>
+    <th class="col-sm-1">Done</th>
+    <th class="col-sm-3">Title</th>
+    <th class="col-sm-3">Member</th>
+    <th class="col-sm-3">Owner</th>
+    <th class="col-sm-2"></th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="task in tasks">
+      <td>{{task.completed}}</td>
+      <td>{{task.title}}</td>
+      <td>{{task.members}}</td>
+      <td>{{task.owner}}</td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
