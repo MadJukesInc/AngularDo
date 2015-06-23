@@ -7,10 +7,10 @@
  * # custDropdown
  */
 angular.module('clientApp')
-  .directive('custDropdown', function () {
+  .directive('ngCustdropdown', function () {
     return {
       template: '<div></div>',
-      restrict: 'E',
+      restrict: 'EA',
       link: function postLink(scope, element, attrs) {
         console.log(attrs);
 
