@@ -12,6 +12,8 @@ angular.module('clientApp')
       template: '<div></div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+        console.log(attrs);
+
         element.text('this is the custDropdown directive');
       }
     };
