@@ -9,5 +9,5 @@
  */
 angular.module('clientApp')
   .factory('Task', function ($resource) {
-    return $resource('http://localhost:8080/api/tasks/:id');
+    return $resource('http://localhost:8080/api/tasks/:id',{id:'@id'});
   });
