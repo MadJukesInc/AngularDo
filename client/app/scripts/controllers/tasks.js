@@ -8,28 +8,37 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('TasksCtrl', function ($scope, Task) {
-    var init = function () {
-      Task.query(function (data) {
-        $scope.tasks = data;
+  .controller('TasksCtrl', function ($scope, Task, User) {
+    var bindData = function () {
+      Task.query().$promise.then(function (result) {
+        $scope.tasks = result;
+      });
+      User.query().$promise.then(function (result) {
+        $scope.users = result;
       });
 
       $scope.newTask = {};
     };
 
-    init();
+    bindData();
 
-    $scope.addUser = function () {
+    $scope.addTask = function () {
       var task = $scope.newTask;
-      task.owner = 1;
       task.completed = false;
+      task.owner = task.owner.id;
 
-      Task.save($scope.newTask);
-
-      init();
+      Task.save(task).$promise.then(function () {
+        bindData();
+      });
     };
-
     $scope.resetTitle = function () {
       $scope.newTask = {};
     };
+    $scope.$on('update', function () {
+      $scope.$evalAsync(
+        function () {
+          bindData();
+        }
+      );
+    });
   });
