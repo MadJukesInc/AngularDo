@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "pgLocal": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "todo_test",
+    "username": "postgres",
+    "password": "",
+    "name": "pgLocal",
+    "connector": "postgresql",
+    "user": "postgres"
+  }
+}
