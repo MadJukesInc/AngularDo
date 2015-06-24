@@ -1,1 +1,40 @@
-<p>This is the users view.</p>
+<form class="form-user" ng-submit="addUser()">
+  <div class="input-group">
+    <input type="text" class="form-control" ng-model="newUser.username" placeholder="Username">
+    <input type="password" class="form-control" ng-model="newUser.password" placeholder="Password">
+    <select class="form-control" ng-model="newUser.role" >
+      <option value="" disabled selected>Select a role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+      <option value="pleb">Pleb</option>
+    </select>
+  </div>
+  <div class="input-group">
+    <button class="btn btn-success" type="submit">
+      Add
+    </button>
+    <button class="btn btn-danger" type="reset">
+      Clear
+    </button>
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>username:</th>
+    <th>password</th>
+    <th>Role</th>
+    <th>Date Created:</th>
+  </thead>
+  <tr ng-repeat="user in users" class="entry">
+    <td>{{user.id}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.password}}</td>
+    <td>{{user.role}}</td>
+    <td>{{user.createdAt}}</td>
+  </tr>
+</table>
+
+
+
