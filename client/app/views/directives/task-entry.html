@@ -1,0 +1,56 @@
+<td>
+  <div class="col-md-10 col-md-offset-1">
+    <input type="checkbox" ng-click="toggleCompleted()" ng-model="task.completed">
+  </div>
+</td>
+<td>
+  <div ng-if="editingTitle" class="input-group input-group-sm col-sm-8">
+    <input type="text" ng-model="task.title" class='form-control'>
+      <span class="input-group-btn">
+        <button ng-click="updateTitle()" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
+      </span>
+  </div>
+  <label ng-if="!editingTitle" ng-dblclick='toggleTitleEdit()' class="row title collapse in">
+    {{task.title}}
+  </label>
+
+</td>
+<td>
+  <div class="col-sm-10">
+    <div ng-if="addingMember" class="input-group">
+      <ui-select ng-model="member.new">
+        <ui-select-match placeholder="Select person in the list...">{{$select.selected.username}}
+        </ui-select-match>
+        <ui-select-choices repeat="user in users | filter: $select.search">
+          <div ng-bind-html="user.username"></div>
+        </ui-select-choices>
+      </ui-select>
+      <span class="input-group-btn">
+        <button ng-click="addMember()" class="btn btn-default btn-sm ">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
+      </span>
+    </div>
+
+    <div ng-if="!addingMember" class="btn-group" role="group" aria-label="...">
+      <button ng-repeat="member in task.members" ng-click="removeMember(member)" class="btn btn-default btn-xs">
+        {{member}}
+      </button>
+      <button ng-if="isOwner" ng-click="toggleAddMember()" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-plus"> </span>
+      </button>
+    </div>
+  </div>
+</td>
+<td>
+  <div>
+    {{ownerName}}
+  </div>
+</td>
+<td>
+  <button type="button" class="btn btn-danger btn-xs delete-task" ng-click="deleteTask()">
+    <span class="glyphicon glyphicon-trash"></span>
+  </button>
+</td>
