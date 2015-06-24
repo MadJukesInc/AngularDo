@@ -20,10 +20,10 @@ angular.module('clientApp')
 
     $scope.addUser = function () {
       var user = $scope.newUser;
-console.log(user);
-      //User.save(user).$promise.then(function () {
-      //  bindData();
-      //});
+      //console.log(user);
+      User.save(user).$promise.then(function () {
+        bindData();
+      });
     };
 
   });

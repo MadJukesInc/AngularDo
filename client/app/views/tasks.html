@@ -2,7 +2,11 @@
   <div class="panel-body">
     <form class="task-form" ng-submit="addTask()">
       <div class="input-group">
-        <input type="text" class="form-control" id="title" ng-model="newTask.title" required>
+        <input type="text"
+               class="form-control"
+               id="title"
+               ng-model="newTask.title"
+               required>
 
                 <span class="input-group-btn">
                 <button class="btn btn-success" type="submit">
@@ -35,8 +39,11 @@
     <th class="col-sm-2"></th>
     </thead>
     <tbody>
-    <tr ng-class="{'success': task.completed, 'danger' : !task.completed}" task-entry ng-repeat="task in tasks"
-        task="task" users="users"></tr>
+    <tr task-entry ng-class="{'success': task.completed, 'danger' : !task.completed}"
+        ng-repeat="task in tasks"
+        task="task"
+        users="users">
+    </tr>
     </tbody>
   </table>
 </div>
