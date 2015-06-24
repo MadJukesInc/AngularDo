@@ -1,19 +1,19 @@
-$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-
-// bower:scss
-@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-// endbower
-
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
 
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
 
+/* ==========================================================================
+Developement Ribbon
+========================================================================== */
 .development {
     position: absolute;
     width: 149px;
@@ -27,11 +27,17 @@ body {
     background-repeat: no-repeat;
 }
 
+/* ==========================================================================
+Version number in navbar
+========================================================================== */
 .navbar-version {
     font-size: 10px;
     color: #ccc
 }
 
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -83,14 +89,42 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
-/* make sure browsers use the pointer cursor for anchors, even with no href */
-a:hover {
-  cursor: pointer;
+.hand {
+    cursor: pointer;
 }
 
+#threadDump .popover, #healthCheck .popover {
+    top: inherit;
+    display: block;
+    font-size: 10px;
+    max-width: 1024px;
+}
+
+#healthCheck .popover {
+    margin-left: -50px;
+}
+
+.health-details {
+    min-width: 400px;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
 
 /* start Password strength bar style */
-ul#strength {
+ul#strengthBar {
     display:inline;
     list-style:none;
     margin:0;

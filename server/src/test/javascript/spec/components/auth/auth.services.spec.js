@@ -18,7 +18,6 @@ describe('Services Tests ', function () {
             $httpBackend.expectGET('scripts/components/navbar/navbar.html').respond({});
             
             $httpBackend.expectGET('scripts/app/main/main.html').respond({});
-            $httpBackend.expectGET(/api\/account\?cacheBuster=\d+/).respond({});
           }));
         //make sure no expectations were missed in your tests.
         //(e.g. expectGET or expectPOST)

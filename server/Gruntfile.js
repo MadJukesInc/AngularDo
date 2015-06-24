@@ -1,4 +1,4 @@
-// Generated on 2015-06-23 using generator-jhipster 2.16.1
+// Generated on 2015-06-24 using generator-jhipster 2.16.1
 'use strict';
 var fs = require('fs');
 
@@ -43,10 +43,6 @@ module.exports = function (grunt) {
             ngconstant: {
                 files: ['Gruntfile.js', 'pom.xml'],
                 tasks: ['ngconstant:dev']
-            },
-            compass: {
-                files: ['src/main/scss/**/*.{scss,sass}'],
-                tasks: ['compass:server']
             }
         },
         autoprefixer: {
@@ -54,13 +50,11 @@ module.exports = function (grunt) {
         },
         wiredep: {
             app: {
-                src: ['src/main/webapp/index.html', 'src/main/scss/main.scss'],
+                src: ['src/main/webapp/index.html'],
                 exclude: [
-                    /angular-i18n/, // localizations are loaded dynamically
-                    /swagger-ui/,
-                    'bower_components/bootstrap/' // Exclude Bootstrap LESS as we use bootstrap-sass
-                ],
-                ignorePath: /\.\.\/webapp\/bower_components\// // remove ../webapp/bower_components/ from paths of injected sass files 
+                    /angular-i18n/,  // localizations are loaded dynamically
+                    /swagger-ui/
+                ]
             },
             test: {
                 src: 'src/test/javascript/karma.conf.js',
@@ -121,27 +115,6 @@ module.exports = function (grunt) {
                 'src/main/webapp/scripts/app/**/*.js',
                 'src/main/webapp/scripts/components/**/*.js'
             ]
-        },
-        compass: {
-            options: {
-                sassDir: 'src/main/scss',
-                cssDir: 'src/main/webapp/assets/styles',
-                generatedImagesDir: '.tmp/assets/images/generated',
-                imagesDir: 'src/main/webapp/assets/images',
-                javascriptsDir: 'src/main/webapp/scripts',
-                fontsDir: 'src/main/webapp/assets/fonts',
-                importPath: 'src/main/webapp/bower_components',
-                httpImagesPath: '/assets/images',
-                httpGeneratedImagesPath: '/assets/images/generated',
-                httpFontsPath: '/assets/fonts',
-                relativeAssets: false
-            },
-            dist: {},
-            server: {
-                options: {
-                    debugInfo: true
-                }
-            }
         },
         concat: {
             // src and dest is configured in a subtask called "generated" by usemin
@@ -354,7 +327,6 @@ module.exports = function (grunt) {
         'clean:server',
         'wiredep',
         'ngconstant:dev',
-        'compass:server',
         'browserSync',
         'watch'
     ]);
@@ -368,7 +340,6 @@ module.exports = function (grunt) {
         'clean:server',
         'wiredep:test',
         'ngconstant:dev',
-        'compass',
         'karma'
     ]);
 
@@ -378,7 +349,6 @@ module.exports = function (grunt) {
         'ngconstant:prod',
         'useminPrepare',
         'ngtemplates',
-        'compass:dist',
         'imagemin',
         'svgmin',
         'concat',
