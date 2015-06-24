@@ -1,16 +1,27 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form class="task-form" ng-submit="addUser()">
+    <form class="task-form" ng-submit="addTask()">
       <div class="input-group">
         <input type="text" class="form-control" id="title" ng-model="newTask.title" required>
-        <!-- need to make the dropdown here-->
+
                 <span class="input-group-btn">
                 <button class="btn btn-success" type="submit">
-                    <span class="glyphicon glyphicon-plus"/>
-                  </button>
-                  <button class="btn btn-danger" type="reset" ng-click="resetTitle()">
-                    <span class="glyphicon glyphicon-remove"/>
-                  </button>
+                  <span class="glyphicon glyphicon-plus"/>
+                </button>
+                  </span>
+      </div>
+      <div class="input-group">
+        <ui-select  ng-model="newTask.owner">
+          <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.username}}
+          </ui-select-match>
+          <ui-select-choices repeat="user in users | filter: $select.search">
+            <div ng-bind-html="user.username"></div>
+          </ui-select-choices>
+        </ui-select>
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="reset" ng-click="resetTitle()">
+                <span class="glyphicon glyphicon-remove"/>
+              </button>
             </span>
       </div>
     </form>
@@ -24,13 +35,8 @@
     <th class="col-sm-2"></th>
     </thead>
     <tbody>
-    <tr ng-repeat="task in tasks">
-      <td>{{task.completed}}</td>
-      <td>{{task.title}}</td>
-      <td>{{task.members}}</td>
-      <td>{{task.owner}}</td>
-      <td></td>
-    </tr>
+    <tr ng-class="{'success': task.completed, 'danger' : !task.completed}" task-entry ng-repeat="task in tasks"
+        task="task" users="users"></tr>
     </tbody>
   </table>
 </div>
