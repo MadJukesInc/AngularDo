@@ -15,17 +15,15 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.utils',
+    'ui.select'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
       })
       .when('/users', {
         templateUrl: 'views/users.html',
@@ -38,4 +36,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  }).config(function(uiSelectConfig) {
+    uiSelectConfig.theme = 'bootstrap';
   });
