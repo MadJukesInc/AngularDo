@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span>Task</span> {{task.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span>Title</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{task.title}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Completed</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{task.completed}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>owner</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{task.owner.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="task"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

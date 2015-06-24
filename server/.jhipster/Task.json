@@ -1,0 +1,60 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "owner",
+            "relationshipNameCapitalized": "Owner",
+            "relationshipFieldName": "owner",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "User",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "member",
+            "relationshipNameCapitalized": "Member",
+            "relationshipFieldName": "member",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityNameCapitalized": "User",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Title",
+            "fieldNameUnderscored": "title",
+            "fieldInJavaBeanMethod": "Title",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "completed",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Completed",
+            "fieldNameUnderscored": "completed",
+            "fieldInJavaBeanMethod": "Completed",
+            "fieldValidate": false
+        }
+    ],
+    "fieldsContainOwnerManyToMany": true,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150624163558",
+    "dto": "no",
+    "pagination": "pagination",
+    "validation": true
+}
